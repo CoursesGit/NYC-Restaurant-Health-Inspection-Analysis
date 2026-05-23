@@ -1,0 +1,10 @@
+Dataset Source:
+NYC Open Data - DOHMH New York City Restaurant Inspection Results
+https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j
+
+Data Coverage:
+This analysis uses inspection records from 2015 to 2025 after cleaning invalid placeholder dates.
+
+Note:
+The original raw dataset is not included in this repository because the file size is too large for GitHub upload.
+Users can download the dataset directly from NYC Open Data.
