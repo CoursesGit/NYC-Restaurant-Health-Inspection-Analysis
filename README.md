@@ -119,11 +119,11 @@ The cleaning process was kept simple and focused on the fields needed for analys
 
 Main cleaning steps:
 
-- Converted blank values into `NULL`
-- Filled missing borough, neighborhood, cuisine, grade, and critical flag values
-- Standardized selected cuisine names
-- Replaced invalid placeholder dates with `NULL`
-- Created cleaned date fields for analysis
+- Converted blank text values into `NULL`
+- Filled missing borough, neighborhood, cuisine, grade, action, and critical flag values
+- Standardized selected cuisine names without over-cleaning the original categories
+- Replaced invalid placeholder dates such as `01/01/1900` with `NULL`
+- Checked cleaned cuisine, grade, date range, critical flag, and action values
 
 Cleaning script:
 
@@ -165,19 +165,20 @@ sql/02_nyc_restaurant_exploratory_analysis.sql
 
 ## Power BI Dashboard
 
-The Power BI dashboard focuses on risk, trends, and recommendations.
+The Power BI dashboard focuses on restaurant inspection risk, geographic patterns, time trends, and recommendation support.
 
 The dashboard includes:
 
-- Critical violation hotspot map
-- Grade records by borough
-- Total violation records
-- Critical violations
-- Critical violation rate
-- Average score trend by year
+- Critical violation density map
+- Grade distribution by borough
+- Overall critical violation rate
+- Average violation-record score trend by year
 - Critical violation rate trend by year
+- Top neighborhoods by critical violation rate
 - Top cuisines by critical violation rate
-- Borough filter
+- Borough filter for interactive analysis
+
+The dashboard helps identify where critical violations are geographically concentrated, which boroughs and cuisines show higher risk patterns, and whether inspection scores or critical violation rates have improved or worsened over time.
 
 ![Dashboard Screenshot](images/dashboard_screenshot.png)
 
