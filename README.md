@@ -2,16 +2,20 @@
 
 ## Project Overview
 
-This project analyzes NYC restaurant health inspection data using SQL and Power BI.
+This project analyzes NYC restaurant health inspection data using MySQL and Power BI.
 
-The goal is to clean the raw inspection data, explore inspection and violation patterns, and build a dashboard to show restaurant risk trends by borough, neighborhood, cuisine type, and time.
+The goal is to clean raw inspection records, handle violation-record level data carefully, and build a dashboard that helps identify restaurant inspection risk patterns by borough, neighborhood, cuisine type, and time.
 
-This project includes:
+A key data issue is that the original dataset is at the violation-record level, meaning one restaurant inspection can appear multiple times if it has multiple violations. To avoid misleading inspection counts, I created separate inspection-level and violation-level logic for analysis.
 
-- Data cleaning in SQL
-- Exploratory analysis in SQL
-- Power BI dashboard
-- Basic recommendations based on the analysis
+
+This project demonstrates:
+
+- SQL data cleaning and validation
+- Inspection-level and violation-level analysis
+- Power BI dashboard design
+- Risk pattern analysis by geography, cuisine, and time
+- Decision-support recommendations based on inspection trends
 
 ---
 
@@ -186,25 +190,28 @@ The dashboard helps identify where critical violations are geographically concen
 
 ## Key Findings
 
-- Critical violations make up a large share of valid violation records.
-- Some neighborhoods have higher critical violation rates than others.
-- Certain cuisine categories show higher critical violation rates.
-- Violation-record average scores increased in later years, which may suggest worse inspection results over time.
+- Critical violations accounted for a meaningful share of valid violation records, making them an important risk indicator for analysis.
+- Some neighborhoods showed higher critical violation rates than others, suggesting areas that may need closer monitoring.
+- Certain cuisine groups showed higher critical violation rates, which may indicate where targeted food safety training or review could be useful.
+- Average violation-record scores increased in later years. Since higher scores represent worse inspection results, this may suggest worsening inspection outcomes, although changes in inspection patterns should also be considered.
 - Critical violation rates changed year by year and did not show a clear stable improvement pattern.
+- Because the raw data is at the violation-record level, inspection-level logic was needed to avoid double-counting and make risk comparisons more reliable.
 
 In NYC restaurant inspections, a higher score means a worse result because scores represent violation points.
 
 ---
 
-## Recommendations
+## Decision Support / Recommendations
 
-Based on the analysis, I would recommend:
+Based on the analysis, the dashboard could help public health or inspection teams:
 
-1. Focus inspection resources on neighborhoods with higher critical violation rates.
-2. Provide more food safety training for cuisine categories with higher critical violation rates.
-3. Monitor score and critical violation trends over time.
-4. Use borough and neighborhood patterns to support more targeted public health campaigns.
-5. Review high-risk areas more closely if they continue to show repeated violation problems.
+1.Prioritize neighborhoods with higher critical violation rates for further review.
+2.Identify cuisine groups that may benefit from targeted food safety training.
+3.Monitor score trends and critical violation rates over time.
+4.Compare borough and neighborhood-level risk patterns more clearly.
+5.Review areas or cuisine groups that repeatedly show higher-risk inspection patterns.
+
+The purpose of the dashboard is not to make final policy decisions, but to make inspection risk patterns easier to identify, compare, and prioritize.
 
 ---
 
