@@ -1,0 +1,25 @@
+relationship 78db2fd3-2524-4efe-bd64-5b3a455db088
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Violation Records'.'INSPECTION DATE'
+	toColumn: LocalDateTable_5597a789-3d75-42a0-bea4-70d528407c3a.Date
+
+relationship 83204a0f-c04a-4c3a-b298-5d44db8938f5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Violation Records'.'Violation Month Date'
+	toColumn: LocalDateTable_3080a2de-ec88-470f-81aa-99b317a9e409.Date
+
+relationship 5b7667ce-0d02-4e2a-b831-a3dbec84d905
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Inspection Records'.'INSPECTION DATE'
+	toColumn: LocalDateTable_InspectionRecords.Date
+
+relationship 05df58bf-ee67-4c8e-8702-20da119577fc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Violation Records'.'GRADE DATE'
+	toColumn: LocalDateTable_1eb2bd5b-9fa3-49c6-8250-11fcffc063b1.Date
+
+relationship 6fb6e972-0723-4891-a00f-d2a1df452d0b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Violation Records'.'RECORD DATE'
+	toColumn: LocalDateTable_2b888f3b-264b-4067-8399-883bb4a80f99.Date
+

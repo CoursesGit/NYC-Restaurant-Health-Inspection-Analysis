@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "NYC_Restaurant_Inspection_Dashboard.pbi"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "00492151-95d9-4d47-8e82-09a4ed8e93d1"
+  }
+}

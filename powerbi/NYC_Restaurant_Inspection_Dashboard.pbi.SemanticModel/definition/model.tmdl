@@ -1,0 +1,25 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Violation Records","Inspection Records","Key Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_cf74526e-6aae-4abf-bb39-5fddd7f8822e
+ref table 'Violation Records'
+ref table LocalDateTable_5597a789-3d75-42a0-bea4-70d528407c3a
+ref table LocalDateTable_3080a2de-ec88-470f-81aa-99b317a9e409
+ref table 'Inspection Records'
+ref table LocalDateTable_InspectionRecords
+ref table LocalDateTable_1eb2bd5b-9fa3-49c6-8250-11fcffc063b1
+ref table LocalDateTable_2b888f3b-264b-4067-8399-883bb4a80f99
+
+ref cultureInfo en-US
+

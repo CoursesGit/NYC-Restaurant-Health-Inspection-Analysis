@@ -1,0 +1,324 @@
+table 'Violation Records'
+	lineageTag: 6428a7a5-c048-4f5c-8022-890d0aeda95b
+
+	measure 'Violation Record Count' =
+			CALCULATE(
+			    COUNTROWS('Violation Records'),
+			    'Violation Records'[VIOLATION CODE] <> BLANK()
+			)
+		formatString: 0
+		lineageTag: 3a8f6fd5-43c2-492d-a376-5d7bc2d64d04
+
+	measure 'Critical Violations' =
+			CALCULATE(
+			    COUNTROWS('Violation Records'),
+			    'Violation Records'[VIOLATION CODE] <> BLANK(),
+			    'Violation Records'[CRITICAL FLAG] = "Critical"
+			)
+		formatString: 0
+		lineageTag: 0687ae61-69f4-4d8e-9b7e-3cac7ba02e3a
+
+	measure 'Valid Critical Flag Records' =
+			CALCULATE(
+			    COUNTROWS('Violation Records'),
+			    'Violation Records'[VIOLATION CODE] <> BLANK(),
+			    'Violation Records'[CRITICAL FLAG] IN {"Critical", "Not Critical"}
+			)
+		formatString: 0
+		lineageTag: 4ad9f4aa-3ec6-4b31-983b-1b19960b2987
+
+	measure 'Critical Violation Rate' =
+			DIVIDE(
+			    [Critical Violations],
+			    [Valid Critical Flag Records]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 979e1008-ae4e-4f32-855f-774e46c7fa7a
+
+	column CAMIS
+		dataType: string
+		lineageTag: 17241d8b-fdcf-4488-86e3-414b9bf0e547
+		summarizeBy: none
+		sourceColumn: CAMIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DBA
+		dataType: string
+		lineageTag: 64263679-e29d-4c2b-9b20-f39025610e47
+		summarizeBy: none
+		sourceColumn: DBA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BORO
+		dataType: string
+		lineageTag: 431e3ec9-b190-45c0-be0c-7fe775b7b8c0
+		summarizeBy: none
+		sourceColumn: BORO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BUILDING
+		dataType: string
+		lineageTag: 5b8d66e3-adf9-4526-b272-770510dbe90a
+		summarizeBy: none
+		sourceColumn: BUILDING
+
+		annotation SummarizationSetBy = Automatic
+
+	column STREET
+		dataType: string
+		lineageTag: b6959688-491b-4165-aaed-b1a2ea7bddbb
+		summarizeBy: none
+		sourceColumn: STREET
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZIPCODE
+		dataType: string
+		lineageTag: 3693306c-a253-40bc-8b23-5413666b40ee
+		summarizeBy: none
+		sourceColumn: ZIPCODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PHONE
+		dataType: string
+		lineageTag: 4764bb12-3187-483a-8b57-2167cdb3b1e8
+		summarizeBy: none
+		sourceColumn: PHONE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUISINE DESCRIPTION'
+		dataType: string
+		lineageTag: cc685d55-c70b-4aa8-818a-f9194edd944a
+		summarizeBy: none
+		sourceColumn: CUISINE DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INSPECTION DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b214f365-96b1-4df2-a5b1-e0d125d20afe
+		summarizeBy: none
+		sourceColumn: INSPECTION DATE
+
+		variation Variation
+			isDefault
+			relationship: 78db2fd3-2524-4efe-bd64-5b3a455db088
+			defaultHierarchy: LocalDateTable_5597a789-3d75-42a0-bea4-70d528407c3a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ACTION
+		dataType: string
+		lineageTag: 44d3b0a7-9d28-4ce4-9c89-45e009fc13e3
+		summarizeBy: none
+		sourceColumn: ACTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VIOLATION CODE'
+		dataType: string
+		lineageTag: f7d48cad-14ad-400f-ad21-cd3db3cf8a58
+		summarizeBy: none
+		sourceColumn: VIOLATION CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VIOLATION DESCRIPTION'
+		dataType: string
+		lineageTag: ca0aa0f0-c4cf-4f0f-a198-6cff06d1c225
+		summarizeBy: none
+		sourceColumn: VIOLATION DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CRITICAL FLAG'
+		dataType: string
+		lineageTag: e6c9a22d-be13-4e88-88b5-d1633abe4837
+		summarizeBy: none
+		sourceColumn: CRITICAL FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCORE
+		dataType: double
+		formatString: 0.00
+		lineageTag: 7583ea24-25f8-4bbb-95dd-34bc15a4e7dc
+		summarizeBy: sum
+		sourceColumn: SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		lineageTag: 5b3599e6-8135-4398-8294-8de699ad1594
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GRADE DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3ca75b1d-9e25-4787-92eb-7fca46600204
+		summarizeBy: none
+		sourceColumn: GRADE DATE
+
+		variation Variation
+			isDefault
+			relationship: 05df58bf-ee67-4c8e-8702-20da119577fc
+			defaultHierarchy: LocalDateTable_1eb2bd5b-9fa3-49c6-8250-11fcffc063b1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'RECORD DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 30f24d49-c5e5-4e63-9f46-99a3080f97f4
+		summarizeBy: none
+		sourceColumn: RECORD DATE
+
+		variation Variation
+			isDefault
+			relationship: 6fb6e972-0723-4891-a00f-d2a1df452d0b
+			defaultHierarchy: LocalDateTable_2b888f3b-264b-4067-8399-883bb4a80f99.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'INSPECTION TYPE'
+		dataType: string
+		lineageTag: b7ed945c-1e15-4b44-816a-237b596d8213
+		summarizeBy: none
+		sourceColumn: INSPECTION TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		formatString: 0.0000000
+		lineageTag: e39b54fe-32c3-4d33-828c-9b5d54bf97fa
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column Longitude
+		dataType: double
+		formatString: 0.0000000
+		lineageTag: 14f6cc16-7f37-40d2-8181-98f6147c4239
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Community Board'
+		dataType: string
+		lineageTag: 680cdbab-36ce-4d22-827c-b6b94c50a6f3
+		summarizeBy: none
+		sourceColumn: Community Board
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Council District'
+		dataType: string
+		lineageTag: 2b621486-7b3e-4bbd-9d46-c1a3320fc197
+		summarizeBy: none
+		sourceColumn: Council District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Census Tract'
+		dataType: string
+		lineageTag: f564f817-9f11-42e3-a7bc-a6f6807abd00
+		summarizeBy: none
+		sourceColumn: Census Tract
+
+		annotation SummarizationSetBy = Automatic
+
+	column BIN
+		dataType: string
+		lineageTag: 62388b8c-f7c6-489d-a532-b60b64e14bb8
+		summarizeBy: none
+		sourceColumn: BIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column BBL
+		dataType: string
+		lineageTag: 28898a63-932a-4804-b7f4-61b2d927311a
+		summarizeBy: none
+		sourceColumn: BBL
+
+		annotation SummarizationSetBy = Automatic
+
+	column NTA
+		dataType: string
+		lineageTag: 6a606bcc-18b5-434b-9cbc-99a69556c1d4
+		summarizeBy: none
+		sourceColumn: NTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Violation Month Date' =
+			
+			IF(
+			    ISBLANK('Violation Records'[INSPECTION DATE]),
+			    BLANK(),
+			    DATE(
+			        YEAR('Violation Records'[INSPECTION DATE]),
+			        MONTH('Violation Records'[INSPECTION DATE]),
+			        1
+			    )
+			)
+		formatString: General Date
+		lineageTag: fa19e6d8-45ef-4a88-bea0-9ab19ed93e3b
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 83204a0f-c04a-4c3a-b298-5d44db8938f5
+			defaultHierarchy: LocalDateTable_3080a2de-ec88-470f-81aa-99b317a9e409.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Risk Area' =
+			
+			IF(
+			    ISBLANK('Violation Records'[BORO])
+			        || ISBLANK('Violation Records'[NTA]),
+			    BLANK(),
+			    'Violation Records'[BORO]
+			        & " - "
+			        & 'Violation Records'[NTA]
+			)
+		lineageTag: 7281d8ed-e5e4-4596-8625-c50de2c3eced
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Violation Records' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nyc_restaurant_inspection", [ReturnSingleDatabase=true]),
+				    v_violation_record_clean = Source{[Schema="nyc_restaurant_inspection",Item="v_violation_record_clean"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(v_violation_record_clean,{{"INSPECTION DATE", type date}, {"GRADE DATE", type date}, {"RECORD DATE", type date}, {"SCORE", type number}, {"Latitude", type number}, {"Longitude", type number}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Location Point1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

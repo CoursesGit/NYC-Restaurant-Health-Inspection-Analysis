@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "444cdb755729e5673f6a",
+  "displayName": "违规风险概览",
+  "displayOption": "FitToPage",
+  "height": 730,
+  "width": 1280
+}

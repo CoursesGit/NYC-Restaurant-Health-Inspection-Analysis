@@ -1,0 +1,20 @@
+# Raw and sample datasets
+data/
+data_sample/
+*.zip
+
+# Power BI local cache and settings
+**/.pbi/
+**/cache.abf
+**/localSettings.json
+**/editorSettings.json
+
+# Backup and temporary files
+**/duplicate*/
+**/*_backup*/
+**/backup/
+**/temp/
+*.tmp
+~$*
+Thumbs.db
+.DS_Store

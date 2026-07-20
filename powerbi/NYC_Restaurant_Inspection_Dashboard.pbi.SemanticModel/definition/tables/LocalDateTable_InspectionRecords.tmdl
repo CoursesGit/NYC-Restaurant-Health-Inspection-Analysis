@@ -1,0 +1,88 @@
+table LocalDateTable_InspectionRecords
+	isHidden
+	showAsVariationsOnly
+	lineageTag: da1771a0-67c3-44c6-bdeb-f08fa9c847ee
+
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: b937d06a-8e2a-48f6-a34e-d6e102306ebc
+		dataCategory: PaddedDateTableDates
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+	column Year = YEAR([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7a5cc8bd-bba5-453c-a453-aa12d959c06e
+		dataCategory: Years
+		summarizeBy: none
+
+	column MonthNo = MONTH([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d5cb5d61-b6b2-4694-a7b2-1640a83805ed
+		dataCategory: MonthOfYear
+		summarizeBy: none
+
+	column Month = FORMAT([Date], "MMMM")
+		dataType: string
+		isHidden
+		lineageTag: f9d58291-b07b-49f7-848c-23aa80547b90
+		dataCategory: Months
+		summarizeBy: none
+		sortByColumn: MonthNo
+
+	column QuarterNo = INT(([MonthNo] + 2) / 3)
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ac3655d7-ab62-45cd-bb9e-26ab3c49fd98
+		dataCategory: QuarterOfYear
+		summarizeBy: none
+
+	column Quarter = "Qtr " & [QuarterNo]
+		dataType: string
+		isHidden
+		lineageTag: bdab3b57-f283-424d-9b16-1b36e6cedc43
+		dataCategory: Quarters
+		summarizeBy: none
+		sortByColumn: QuarterNo
+
+	column Day = DAY([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c474e1c0-cf62-4ac3-b3bd-b3834dc28261
+		dataCategory: DayOfMonth
+		summarizeBy: none
+
+	hierarchy 'Date Hierarchy'
+		lineageTag: bd921eae-f8b8-41aa-8580-e5b5c67f2c45
+
+		level Year
+			lineageTag: 18bff2a1-e9fa-47c9-9f89-4716036e7aa0
+			column: Year
+
+		level Quarter
+			lineageTag: f85d31d0-dbc8-4c8e-a109-33c30eced852
+			column: Quarter
+
+		level Month
+			lineageTag: 27ed885d-e9d3-4b30-aa87-33ff0dc835fc
+			column: Month
+
+		level Day
+			lineageTag: 479490e7-10da-4520-ac60-fb701ec31f31
+			column: Day
+
+	partition LocalDateTable_InspectionRecords = calculated
+		mode: import
+		source = Calendar(Date(Year(MIN('Inspection Records'[INSPECTION DATE])), 1, 1), Date(Year(MAX('Inspection Records'[INSPECTION DATE])), 12, 31))
+
+	annotation __PBI_LocalDateTable = true
+

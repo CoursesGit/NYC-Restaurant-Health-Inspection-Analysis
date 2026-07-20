@@ -1,0 +1,118 @@
+table 'Inspection Records'
+	lineageTag: 4bc5e3fb-56d3-4f93-8304-51974f113b95
+
+	measure 'Inspection Count' = COUNTROWS('Inspection Records')
+		formatString: 0
+		lineageTag: c05e1a9a-5a04-48ec-b046-f15492844f58
+
+	measure 'Restaurant Count' = DISTINCTCOUNT('Inspection Records'[CAMIS])
+		formatString: 0
+		lineageTag: 29bf3d57-eb78-4911-a41b-c682cda11929
+
+	measure 'Average Inspection Score' = AVERAGE('Inspection Records'[SCORE])
+		formatString: 0.00
+		lineageTag: ccc2c5c8-4794-4012-8814-a67e6a76eb2f
+
+	column CAMIS
+		dataType: string
+		lineageTag: 854a07e1-c464-4540-9f93-7791936194c4
+		summarizeBy: none
+		sourceColumn: CAMIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DBA
+		dataType: string
+		lineageTag: aae41c55-4f68-48b5-b410-bd004b81bebf
+		summarizeBy: none
+		sourceColumn: DBA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BORO
+		dataType: string
+		lineageTag: a2cdb8a1-b74d-4114-918d-356a70d245f5
+		summarizeBy: none
+		sourceColumn: BORO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NTA
+		dataType: string
+		lineageTag: f90d8626-feac-45ac-9249-61b01c1b6796
+		summarizeBy: none
+		sourceColumn: NTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUISINE DESCRIPTION'
+		dataType: string
+		lineageTag: 11ed3c32-ee13-4d08-bea3-48c1bb9adee5
+		summarizeBy: none
+		sourceColumn: CUISINE DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INSPECTION DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4fced48d-d47c-45e1-80b5-f316a95c69e9
+		summarizeBy: none
+		sourceColumn: INSPECTION DATE
+
+		variation Variation
+			isDefault
+			relationship: 5b7667ce-0d02-4e2a-b831-a3dbec84d905
+			defaultHierarchy: LocalDateTable_InspectionRecords.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'INSPECTION TYPE'
+		dataType: string
+		lineageTag: 9eb2cf47-1b06-4994-a2c6-2ba504d00244
+		summarizeBy: none
+		sourceColumn: INSPECTION TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTION
+		dataType: string
+		lineageTag: 7e0bdce0-61ef-424a-968b-7366594de068
+		summarizeBy: none
+		sourceColumn: ACTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCORE
+		dataType: double
+		formatString: 0.00
+		lineageTag: e2d3227d-18f6-4348-8af7-c97217e0a7e8
+		summarizeBy: sum
+		sourceColumn: SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		lineageTag: e20d2976-b7f8-4a6a-957d-584f94eff09d
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Inspection Records' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nyc_restaurant_inspection", [ReturnSingleDatabase=true]),
+				    v_inspection_level = Source{[Schema="nyc_restaurant_inspection",Item="v_inspection_level"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(v_inspection_level,{{"INSPECTION DATE", type date}, {"SCORE", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

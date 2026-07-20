@@ -1,0 +1,293 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "violation_records.cuisine_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Violation Records",
+			          "ConceptualProperty": "CUISINE DESCRIPTION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "菜系": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "violation_records.valid_critical_flag_records": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Violation Records",
+			          "ConceptualProperty": "Valid Critical Flag Records"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "有效违规记录数": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "violation_records.critical_violation_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Violation Records",
+			          "ConceptualProperty": "Critical Violation Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "占比": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "严重违规记录占比": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "violation_records.violation_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Violation Records",
+			          "ConceptualProperty": "VIOLATION DESCRIPTION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Violation Description": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "violation_records.boro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Violation Records",
+			          "ConceptualProperty": "BORO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "行政区筛选": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "行政区": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inspection_records.cuisine_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inspection Records",
+			          "ConceptualProperty": "CUISINE DESCRIPTION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "菜系": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inspection_records.boro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inspection Records",
+			          "ConceptualProperty": "BORO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "行政区筛选": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inspection_records.average_inspection_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inspection Records",
+			          "ConceptualProperty": "Average Inspection Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "平均检查得分": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "平均得分": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "violation_records.violation_record_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Violation Records",
+			          "ConceptualProperty": "Violation Record Count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "违规记录数": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inspection_records.inspection_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inspection Records",
+			          "ConceptualProperty": "Inspection Count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "检查次数": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inspection_records.restaurant_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inspection Records",
+			          "ConceptualProperty": "Restaurant Count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "餐厅数量": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "violation_records.nta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Violation Records",
+			          "ConceptualProperty": "NTA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "NTA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+
