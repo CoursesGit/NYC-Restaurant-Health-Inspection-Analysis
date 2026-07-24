@@ -15,7 +15,7 @@
 
 数据来自 [NYC Open Data：DOHMH New York City Restaurant Inspection Results](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j)。原始数据一行代表一条 **violation record**；同一次检查若发现多项违规，会出现多行。
 
-清洗后的分析范围为 2015—2025 年。Dashboard 的年度趋势主要展示 2020—2025 年；2020—2021 年记录较少，2025 年仅统计到数据更新日期，是部分年度，不能与完整年度直接等量比较。仓库中的 `data_sample/` 是展示字段结构的样例，不等同于完整数据。
+清洗后的分析范围为 2015—2025 年。Dashboard 的年度趋势主要展示 2020—2025 年；2015-2020年记录为个例，而 2020—2021 年记录也较少，2025 年仅统计到数据更新日期，是部分年度，不能与完整年度直接等量比较。仓库中的 `data_sample/` 是展示字段结构的样例，不等同于完整数据。
 
 更详细的来源说明见 [docs/data_source.txt](docs/data_source.txt)，字段字典见 [docs/RestaurantInspectionDataDictionary.xlsx](docs/RestaurantInspectionDataDictionary.xlsx)。
 
